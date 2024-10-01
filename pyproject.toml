@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlflow-tracing"
+dependencies = [
+    "mlflow>=2.16.2",
+    "numpy>=2.1.1",
+]
+requires-python = ">=3.12"
+authors = [
+    {name = "Yke Rusticus", email = "yke.rusticus@xebia.com"},
+]
+description = "Demand forecasting and planning for TP Aerospace"
+readme = "README.md"
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+    "ipykernel==6.29.3",
+    "pytest==8.1.1",
+    "pre-commit==3.6.2",
+    "ruff==0.6.5",
+    "black>=24.8.0",
+]
+
+[tool.setuptools_scm]
+version_file = "src/mlflow_tracing/_version.py"
+
+[tool.ruff]
+src = ["src"]
+line-length = 100
+lint.extend-select = ["I"]  # More rules here: https://docs.astral.sh/ruff/rules/
+
+[tool.black]
+line-length = 100
